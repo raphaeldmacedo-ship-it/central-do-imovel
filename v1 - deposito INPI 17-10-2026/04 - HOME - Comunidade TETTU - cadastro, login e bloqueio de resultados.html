@@ -1,0 +1,113 @@
+<!--
+  Programa: CENTRAL DO IMÓVEL – SIMULADORES ITBI E ITD E TESTE DE POTENCIAL – VERSÃO 1
+  Bloco 04 de 13: HOME - Comunidade TETTU - cadastro, login e bloqueio de resultados
+  Página: Home (/) (page_id 6ac0587cb1d51ad5957c11f9)
+  Elemento de origem: HtmlEmbed (element_id db2e828a-cf53-d511-3d88-1cd879f0909d)
+  Site: TETTU Negócios Imobiliários (site_id 6ac0587bb1d51ad5957c11f6) · tettunegociosimobiliarios.com.br
+  Função: Comunidade TETTU: modal de cadastro/login (nome, e-mail, CPF com validação, finalidade, consentimento LGPD) e bloqueio (blur) dos resultados das ferramentas para visitantes não logados, via Memberstack.
+  Tamanho do código original: 12629 caracteres
+  Data de extração: 17/10/2026
+  Código abaixo deste cabeçalho reproduzido integralmente, sem alteração.
+-->
+<script data-memberstack-app="app_cmuuha2ih003i0sug2hrnbjuu" src="https://static.memberstack.com/scripts/v2/memberstack.js" type="text/javascript"></script>
+<style>
+.tt-res{position:relative}
+body:not(.tt-in) #ferramentas .fx-out b,body:not(.tt-in) #ferramentas .fx-out p,body:not(.tt-in) #ferramentas .cmp b,body:not(.tt-in) #ferramentas .cmp span,body:not(.tt-in) #ferramentas .ast-out>*{filter:blur(7px);user-select:none;pointer-events:none}
+.tt-lock{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;white-space:nowrap;background:#fff;color:var(--purple-deep);border:0;border-radius:999px;padding:10px 18px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 10px 30px -8px rgba(64,42,99,.55)}
+body:not(.tt-in) .tt-lock{display:inline-flex;align-items:center;gap:8px}
+.tt-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:210;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:0 20px 50px -10px rgba(64,42,99,.45);font-size:15px;display:none}
+.tt-toast a{color:var(--purple);font-weight:700;margin-left:8px}
+.msm{position:fixed;inset:0;z-index:200;background:rgba(28,20,40,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px}
+.msm.on{display:flex}
+.msm-box{background:#fff;border-radius:20px;width:min(520px,100%);max-height:92vh;overflow:auto;padding:28px;position:relative;box-shadow:0 40px 80px rgba(0,0,0,.35)}
+.msm-x{position:absolute;right:14px;top:12px;border:0;background:none;font-size:26px;color:var(--ink-soft);cursor:pointer}
+.msm-box h3{font-size:22px;color:var(--purple-deep);margin:0 0 4px}.msm-box .sub{font-size:14px;color:var(--ink-soft);margin:0 0 16px;text-align:left}
+.msm-box label{display:block;font-size:13px;font-weight:700;color:var(--purple-deep);margin:12px 0 5px}
+.msm-box input,.msm-box select{width:100%;height:46px;border:1.5px solid var(--line);border-radius:11px;padding:0 13px;font:inherit;font-size:15px;color:var(--ink);background:#fff}
+.msm-box input:focus,.msm-box select:focus{outline:none;border-color:var(--purple)}
+.msm-box .r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msm-box .ck{font-weight:400;display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px;color:var(--ink-soft);text-align:left;line-height:1.45}
+.msm-box .ck input{width:18px;height:18px;flex:0 0 18px;margin-top:2px;accent-color:var(--purple)}
+.msm-box .ck a{color:var(--purple);font-weight:700}
+.msm-box .go{width:100%;margin-top:18px;justify-content:center;height:50px}
+.msm-err{display:none;margin-top:12px;background:#FDECEC;color:#9B1C1C;border-radius:10px;padding:10px 12px;font-size:13.5px;text-align:left}
+.msm-sw{margin-top:14px;font-size:14px;text-align:center;color:var(--ink-soft)}.msm-sw a{color:var(--purple);font-weight:700;cursor:pointer}
+.ms-user{display:none;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-soft);margin-right:12px}
+.ms-user b{color:var(--purple-deep)}.ms-user a{color:var(--purple);font-weight:700;cursor:pointer}
+@media (max-width:560px){.msm-box .r2{grid-template-columns:1fr}.tt-lock{font-size:13px;padding:9px 14px}}
+</style>
+
+<div class="tt-toast" id="tt-toast"></div>
+<div class="msm" id="msm" role="dialog" aria-modal="true" aria-labelledby="msm-t"><div class="msm-box">
+<button class="msm-x" id="msm-x" aria-label="Fechar">×</button>
+<div id="msm-su">
+<h3 id="msm-t">Cadastro gratuito · Comunidade TETTU</h3>
+<p class="sub" id="su-sub">Acesso livre à Central do Imóvel e às Ferramentas: certidões de 5 estados, simuladores, assistente e normas.</p>
+<form id="f-su" novalidate>
+<div class="r2"><div><label for="su-n">Nome</label><input id="su-n" autocomplete="given-name" required></div><div><label for="su-s">Sobrenome</label><input id="su-s" autocomplete="family-name" required></div></div>
+<label for="su-e">E-mail</label><input id="su-e" type="email" autocomplete="email" required>
+<div class="r2"><div><label for="su-c">CPF</label><input id="su-c" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required></div>
+<div><label for="su-f">Finalidade</label><select id="su-f" required><option value="">Selecione</option><option>Comprar imóvel</option><option>Vender imóvel</option><option>Inventário ou herança</option><option>Regularizar imóvel</option><option>Investir ou empreender</option><option>Uso profissional (corretor, advogado, cartório)</option><option>Outro</option></select></div></div>
+<label for="su-p">Crie uma senha</label><input id="su-p" type="password" autocomplete="new-password" minlength="8" placeholder="Mínimo de 8 caracteres" required>
+<label class="ck"><input type="checkbox" id="su-l" required><span>Li e concordo com a <a href="/politicadeprivacidade" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo a TETTU a tratar meus dados (nome, e-mail, CPF e finalidade) para criar meu acesso, enviar o relatório de certidões quando solicitado e fazer contato sobre o meu atendimento, nos termos da Lei 13.709/2018 (LGPD). Posso revogar esta autorização a qualquer momento.</span></label>
+<button class="btn btn-gold go" type="submit" id="su-b">Criar meu acesso gratuito</button>
+<div class="msm-err" id="su-err"></div>
+</form>
+<p class="msm-sw">Já tem cadastro? <a id="to-li">Entrar</a></p>
+</div>
+<div id="msm-li" style="display:none">
+<h3>Entrar na Comunidade TETTU</h3>
+<p class="sub">Use o e-mail e a senha do seu cadastro.</p>
+<form id="f-li" novalidate>
+<label for="li-e">E-mail</label><input id="li-e" type="email" autocomplete="email" required>
+<label for="li-p">Senha</label><input id="li-p" type="password" autocomplete="current-password" required>
+<button class="btn btn-gold go" type="submit" id="li-b">Entrar</button>
+<div class="msm-err" id="li-err"></div>
+</form>
+<p class="msm-sw">Ainda não tem cadastro? <a id="to-su">Cadastre-se grátis</a></p>
+</div>
+</div></div>
+
+<script>
+(function(){
+var LK='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+var logged=false,pend=null;
+/* resultados dos simuladores: aparecem borrados até o cadastro */
+document.querySelectorAll('#ferramentas .fx-out,#ferramentas .cmp,#ferramentas .ast-out').forEach(function(c){c.classList.add('tt-res');var b=document.createElement('button');b.type='button';b.className='tt-lock';b.setAttribute('data-ms','su');b.setAttribute('data-why','res');b.innerHTML=LK+'Cadastre-se grátis para ver o resultado';c.appendChild(b)});
+/* certidões, pedidos e links: cadastro na hora do clique */
+var GATED='#lgrid a,#lwa,.lq-cta a,#as-w,#as-o a,#nl-o a,.fx-ask a';
+document.addEventListener('click',function(e){if(logged)return;var a=e.target.closest(GATED);if(!a)return;e.preventDefault();e.stopPropagation();pend=a.href||null;open('su','cert')},true);
+/* cabeçalho: entrar / sair */
+var nav=document.querySelector('header .nav');var u=document.createElement('div');u.className='ms-user';u.id='ms-user';
+var cta=nav?nav.querySelector('.btn'):null;if(nav&&cta)nav.insertBefore(u,cta);
+var M=document.getElementById('msm');
+var SUB={res:'Seu resultado está pronto. Faça o cadastro gratuito para ver o valor e usar todas as ferramentas.',cert:'Para acessar as certidões e fazer pedidos, faça seu cadastro gratuito. Leva 30 segundos.',def:'Acesso livre à Central do Imóvel e às Ferramentas: certidões de 5 estados, simuladores, assistente e normas.'};
+function open(which,why){var ss=document.getElementById('su-sub');if(ss)ss.textContent=SUB[why]||SUB.def;document.getElementById('msm-su').style.display=which==='li'?'none':'block';document.getElementById('msm-li').style.display=which==='li'?'block':'none';M.classList.add('on');setTimeout(function(){var f=M.querySelector(which==='li'?'#li-e':'#su-n');if(f)f.focus()},60)}
+function close(){M.classList.remove('on')}
+function toast(h){var t=document.getElementById('tt-toast');t.innerHTML=h;t.style.display='block';setTimeout(function(){t.style.display='none'},9000)}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-ms]');if(t){e.preventDefault();pend=null;open(t.getAttribute('data-ms'),t.getAttribute('data-why'))}});
+document.getElementById('msm-x').onclick=close;M.addEventListener('click',function(e){if(e.target===M)close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+document.getElementById('to-li').onclick=function(){open('li')};document.getElementById('to-su').onclick=function(){open('su')};
+function unlock(m){m=m&&(m.member||m);logged=true;document.body.classList.add('tt-in');var n=(m&&m.customFields&&m.customFields['first-name'])||'';u.innerHTML='Olá, <b>'+(n||'membro')+'</b> · <a id="ms-out">Sair</a>';u.style.display='flex';var o=document.getElementById('ms-out');if(o)o.onclick=function(){ms().logout().then(function(){location.reload()})};
+if(pend){var h=pend;pend=null;var w=window.open(h,'_blank','noopener');if(!w)toast('Cadastro concluído! <a href="'+h+'" target="_blank" rel="noopener">Abrir o link agora →</a>');else toast('Cadastro concluído! Bem-vindo à Comunidade TETTU.')}}
+function lockUi(){logged=false;document.body.classList.remove('tt-in');u.innerHTML='<a data-ms="li">Entrar</a>';u.style.display='flex'}
+function ms(){return window.$memberstackDom}
+function ready(cb,t){t=t||0;if(ms())return cb();if(t>80){logged=true;document.body.classList.add('tt-in');return}setTimeout(function(){ready(cb,t+1)},150)}
+ready(function(){ms().getCurrentMember().then(function(r){if(r&&r.data)unlock(r.data);else lockUi()}).catch(lockUi)});
+/* CPF */
+var cpf=document.getElementById('su-c');cpf.addEventListener('input',function(){var v=cpf.value.replace(/\D/g,'').slice(0,11);v=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');cpf.value=v});
+function cpfOk(s){s=s.replace(/\D/g,'');if(s.length!==11||/^(\d)\1+$/.test(s))return false;for(var t=9;t<11;t++){var d=0;for(var c=0;c<t;c++)d+=s[c]*((t+1)-c);d=((10*d)%11)%10;if(+s[t]!==d)return false}return true}
+function err(id,m){var e=document.getElementById(id);e.textContent=m;e.style.display=m?'block':'none'}
+function trad(m){m=String(m||'');if(/already|exists|taken/i.test(m))return 'Este e-mail já tem cadastro. Clique em "Entrar".';if(/password/i.test(m)&&/invalid|incorrect|wrong/i.test(m))return 'E-mail ou senha incorretos.';if(/not found|no member/i.test(m))return 'Não encontramos esse e-mail. Faça seu cadastro.';if(/password/i.test(m))return 'A senha precisa ter pelo menos 8 caracteres.';return 'Não foi possível concluir agora. Tente novamente em instantes.'}
+document.getElementById('f-su').addEventListener('submit',function(e){e.preventDefault();err('su-err','');
+var g=function(i){return document.getElementById(i).value.trim()};var n=g('su-n'),s=g('su-s'),em=g('su-e'),c=g('su-c'),f=g('su-f'),p=document.getElementById('su-p').value,l=document.getElementById('su-l').checked;
+if(!n||!s)return err('su-err','Informe nome e sobrenome.');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em))return err('su-err','Informe um e-mail válido.');if(!cpfOk(c))return err('su-err','CPF inválido. Confira os números.');if(!f)return err('su-err','Selecione a finalidade.');if(p.length<8)return err('su-err','A senha precisa ter pelo menos 8 caracteres.');if(!l)return err('su-err','Para continuar, aceite a Política de Privacidade (LGPD).');
+var b=document.getElementById('su-b');b.disabled=true;b.textContent='Criando seu acesso...';
+ready(function(){ms().signupMemberEmailPassword({email:em,password:p,customFields:{'first-name':n,'last-name':s}}).then(function(r){
+return ms().updateMemberJSON({json:{cpf:c,finalidade:f,lgpd:{aceite:true,texto:'Política de Privacidade TETTU · Lei 13.709/2018',data:new Date().toISOString()},origem:location.hostname}}).catch(function(){}).then(function(){close();unlock(r&&r.data)})
+}).catch(function(x){err('su-err',trad(x&&x.message))}).then(function(){b.disabled=false;b.textContent='Criar meu acesso gratuito'})})});
+document.getElementById('f-li').addEventListener('submit',function(e){e.preventDefault();err('li-err','');var em=document.getElementById('li-e').value.trim(),p=document.getElementById('li-p').value;if(!em||!p)return err('li-err','Informe e-mail e senha.');
+var b=document.getElementById('li-b');b.disabled=true;b.textContent='Entrando...';
+ready(function(){ms().loginMemberEmailPassword({email:em,password:p}).then(function(r){close();unlock(r&&r.data)}).catch(function(x){err('li-err',trad(x&&x.message))}).then(function(){b.disabled=false;b.textContent='Entrar'})})});
+})();
+</script>

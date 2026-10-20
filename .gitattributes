@@ -1,0 +1,2 @@
+# Preserva os bytes exatos dos arquivos (o resumo digital SHA-512 depositado no INPI depende disso).
+* -text

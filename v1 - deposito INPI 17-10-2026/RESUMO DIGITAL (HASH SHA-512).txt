@@ -1,0 +1,6 @@
+cd45ff625ea539f18e3da44692a6171da7af979946109e3605e3b5118bc2f7c3f46aec1507e6b042a634139ecad0b46c2194852b43ba905b734ba2dbdaba4757  01 - HOME - Cabecalho, hero com chips de objetivo e carrossel Atualidades.html
+efceedbf911d71cc39feab9034e6efbafc1b7ff35add9d67c4f8b636e255d64bdc8b72c43ed2f9bbe40301bf1050c94dfd502030c62196039530927ed3b73e91  02 - HOME - Teste de Potencial, Central do Imovel, servicos, processo, equipe e depoimentos.html
+834af0e29b2b88b679e50c57a14b04950227ea228e9f7c48ab7bf4ec338aca6402fbbe4131b7791ba9b41e9ea1cb5b65aa635f68b067ccc621a2f5bf782327da  03 - HOME - Ferramentas - Simuladores ITBI e ITD-ITCMD, Vender x Permutar, Assistente de certidoes, Normas e mapa.html
+3b4445bd93eda65572a7b670e912d0647e3397663afe4ca063d0e1fdc0ec9ca8167b7e7b13c540dbe53b03f1a2e96a5c7d40bca974af9a755505a312820c1779  04 - HOME - Comunidade TETTU - cadastro, login e bloqueio de resultados.html
+2b3ee5084ff3cdcebc708ed2a30f42855c37645d9b28b69e810acefa5fb70cd07f288fc8ac988c4dc10df6aa457a11c8bcfcc3a9d0aaf790b91532eead0d30c4  05 - HOME - Ajustes do cabecalho e seletor de idiomas.html
+999336f5f105f23209e90d8e7b2435a91497ae87c0848dffac8d5be99fb79695bf05e41dabb9b2a44f9fd4ff0c69128ab88363145f45c96663e8e8c5c74034cd  CODIGO-FONTE - CENTRAL DO IMOVEL - SIMULADORES v1 - DEPOSITO INPI - 17102026.txt

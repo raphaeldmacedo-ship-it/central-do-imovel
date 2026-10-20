@@ -1,0 +1,206 @@
+<!--
+  Programa: CENTRAL DO IMÓVEL – SIMULADORES ITBI E ITD E TESTE DE POTENCIAL – VERSÃO 1
+  Bloco 03 de 13: HOME - Ferramentas - Simuladores ITBI e ITD-ITCMD, Vender x Permutar, Assistente de certidoes, Normas e mapa
+  Página: Home (/) (page_id 6ac0587cb1d51ad5957c11f9)
+  Elemento de origem: HtmlEmbed (element_id d76d3878-81c2-ac6e-e4ec-44c22c3fc368)
+  Site: TETTU Negócios Imobiliários (site_id 6ac0587bb1d51ad5957c11f6) · tettunegociosimobiliarios.com.br
+  Função: Ferramentas: simulador de ITBI (municípios RJ, com parcela SFH), simulador de ITD/ITCMD (RJ, SP, MG, DF, RS), comparador Vender × Permutar, assistente de certidões, normas/legislação e mapa de atuação (9 municípios).
+  Tamanho do código original: 30307 caracteres
+  Data de extração: 17/10/2026
+  Código abaixo deste cabeçalho reproduzido integralmente, sem alteração.
+-->
+<style>
+.why{background:radial-gradient(900px 420px at 0% 0%,rgba(255,255,255,.10),transparent 60%),linear-gradient(135deg,#8A5CC4 0%,#6F45AD 45%,#4E3180 100%)!important}
+.why-card{background:rgba(255,255,255,.08)!important}.why-card p,.why .section-head p{color:#EFE8FA!important}.why-grid{background:rgba(255,255,255,.14)!important}
+.fx{padding:96px 0;background:linear-gradient(180deg,#fff 0%,var(--purple-pale) 100%);border-top:1px solid var(--line)}
+.fx h2{font-size:clamp(28px,3.4vw,42px);margin:14px 0 12px}.fx .sub{color:var(--ink-soft);font-size:17px;max-width:760px;margin:0 0 28px}
+.fx-tabs{display:flex;gap:6px;background:#fff;border:1px solid var(--line);padding:6px;border-radius:14px;width:max-content;max-width:100%;overflow-x:auto;margin-bottom:24px}
+.fx-tab{border:0;background:transparent;padding:11px 18px;border-radius:10px;font:inherit;font-weight:600;font-size:14.5px;color:var(--purple-deep);cursor:pointer;white-space:nowrap}
+.fx-tab.on{background:var(--purple);color:#fff;box-shadow:0 6px 16px rgba(112,70,171,.3)}
+.fx-pane{display:none;animation:fade .35s}.fx-pane.on{display:block}
+.fx-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.fx-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 18px 40px -24px rgba(64,42,99,.25)}
+.fx-card h3{font-size:20px;margin:0 0 6px;color:var(--purple-deep)}.fx-card .hint{font-size:13.5px;color:var(--ink-soft);margin:0 0 18px}
+.fx label{display:block;font-size:13px;font-weight:700;color:var(--purple-deep);margin:14px 0 6px;letter-spacing:.02em}
+.fx input,.fx select{width:100%;height:48px;border:1.5px solid var(--line);border-radius:12px;padding:0 14px;font:inherit;font-size:15.5px;background:#fff;color:var(--ink)}
+.fx input:focus,.fx select:focus{outline:none;border-color:var(--purple)}
+.fx .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fx-seg{display:flex;gap:6px;flex-wrap:wrap}.fx-seg button{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 14px;font:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer}
+.fx-seg button.on{background:var(--purple);border-color:var(--purple);color:#fff}
+.fx-out{margin-top:20px;border-radius:16px;padding:22px;background:linear-gradient(135deg,#7A4FB8 0%,#5B3A8E 100%);color:#fff}
+.fx-out small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.fx-out b{display:block;font-size:34px;line-height:1.1;color:var(--gold);margin:6px 0}
+.fx-out p{margin:0;font-size:13.5px;color:#E9E0F7;text-align:left}
+.fx-note{font-size:12.5px;color:var(--ink-soft);margin-top:12px;text-align:left}#fx-imp .fx-grid{align-items:stretch}#fx-imp .fx-card{display:flex;flex-direction:column}#fx-imp .fx-out{margin-top:auto;min-height:150px}#fx-imp .fx-card .sp{flex:1;min-height:20px}.fx-ask{margin-top:14px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:#fff;border:1px dashed var(--purple-soft);border-radius:14px;padding:14px 18px;font-size:14.5px;color:var(--purple-deep)}.fx-ask a{font-weight:700;color:var(--purple)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cmp>div{border-radius:14px;padding:18px;border:1px solid var(--line);background:var(--bg)}
+.cmp>div.win{border:2px solid var(--gold);background:#fff}
+.cmp small{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
+.cmp b{display:block;font-size:24px;color:var(--purple-deep);margin:4px 0}
+.cmp span{font-size:13px;color:var(--ink-soft)}
+.bar{height:10px;border-radius:9px;background:var(--purple-pale);margin-top:10px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),#9468D6);border-radius:9px;transition:width .6s}
+.ast-out{margin-top:18px;display:grid;gap:10px}
+.ast-item{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);transition:all .2s}
+.ast-item:hover{border-color:var(--purple);background:#fff}
+.ast-item .n{flex:0 0 28px;height:28px;border-radius:50%;background:var(--purple);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.ast-item div{flex:1;font-size:14.5px}.ast-item small{display:block;color:var(--ink-soft);font-size:12.5px}
+.ast-item a{font-size:13px;font-weight:700;color:var(--purple);white-space:nowrap}
+.nl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+.nl a,.nl span.nlk{display:block;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff;transition:all .2s}
+.nl a:hover{border-color:var(--purple);transform:translateY(-2px);box-shadow:0 10px 22px rgba(64,42,99,.1)}
+.nl .uf{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gold-deep)}.nl b{display:block;font-size:15px;margin:2px 0 4px;color:var(--purple-deep)}.nl i{font-style:normal;font-size:12.5px;color:var(--ink-soft)}
+.nl .soon{opacity:.6}
+.pref{display:flex;gap:10px;margin-top:8px}.pref input{flex:1}.pref button{height:48px;padding:0 20px;border:0;border-radius:12px;background:var(--gold);color:var(--purple-black);font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
+.mapa{padding:96px 0;background:#fff;border-top:1px solid var(--line)}
+.mapa-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:24px;align-items:stretch}
+#tmap{height:460px;border-radius:20px;border:1px solid var(--line);overflow:hidden;z-index:1;background:var(--purple-pale)}
+.mapa-list{display:flex;flex-direction:column;gap:8px}
+.mapa-list button{text-align:left;display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:12px 16px;font:inherit;font-size:15px;font-weight:600;color:var(--purple-deep);cursor:pointer;transition:all .2s}
+.mapa-list button span{font-size:12px;font-weight:600;color:var(--gold-deep)}
+.mapa-list button:hover,.mapa-list button.on{border-color:var(--purple);background:var(--purple);color:#fff}.mapa-list button.on span,.mapa-list button:hover span{color:var(--gold)}
+.tpin{width:18px;height:18px;border-radius:50%;background:var(--purple);border:3px solid #fff;box-shadow:0 0 0 4px rgba(112,70,171,.25)}
+.tpin.case{background:var(--gold);box-shadow:0 0 0 6px rgba(255,168,0,.3)}
+#tmap .leaflet-tile-pane{filter:saturate(.55) brightness(1.03)}.leaflet-popup-content{font-family:Calibri,Carlito,sans-serif;font-size:14px}
+@media (max-width:900px){.fx-grid,.mapa-grid{grid-template-columns:1fr}.nl{grid-template-columns:1fr 1fr}#tmap{height:360px}}
+@media (max-width:560px){.nl,.cmp,.fx .row2{grid-template-columns:1fr}.fx,.mapa{padding:64px 0}.pref{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+
+<section class="fx" id="ferramentas"><div class="w">
+<div class="mono eyebrow">Ferramentas TETTU</div>
+<h2>Faça a conta antes de fechar o negócio.</h2>
+<p class="sub">Simule impostos, compare venda e permuta e descubra, em segundos, quais certidões e normas valem para o seu caso — em cinco estados.</p>
+<div class="fx-tabs" role="tablist"><button class="fx-tab on" data-p="fx-imp">Simulador de impostos</button><button class="fx-tab" data-p="fx-cmp">Vender × Permutar</button><button class="fx-tab" data-p="fx-ast">Assistente de certidões</button><button class="fx-tab" data-p="fx-nl">Normas e legislação</button></div>
+
+<div class="fx-pane on" id="fx-imp"><div class="fx-grid">
+<div class="fx-card"><h3>ITBI · compra e venda</h3><p class="hint">Imposto municipal pago na transferência do imóvel. Disponível para municípios do Estado do Rio de Janeiro.</p>
+<label for="ib-v">Valor do imóvel (R$)</label><input id="ib-v" inputmode="numeric" value="500.000">
+<label for="ib-m">Município</label><select id="ib-m"></select>
+<div id="ib-fin-w" style="display:none"><label for="ib-f">Parte financiada pelo SFH (R$)</label><input id="ib-f" inputmode="numeric" value="0"></div>
+<div class="sp"></div><div class="fx-out"><small>ITBI estimado</small><b id="ib-o">R$ 0</b><p id="ib-p"></p></div>
+</div>
+<div class="fx-card"><h3>ITD / ITCMD · doação e herança</h3><p class="hint">Imposto estadual sobre transmissão causa mortis e doação. Disponível para RJ, SP, MG, DF e RS.</p>
+<div class="row2"><div><label for="it-uf">Estado</label><select id="it-uf"><option value="RJ">Rio de Janeiro</option><option value="SP">São Paulo</option><option value="MG">Minas Gerais</option><option value="DF">Distrito Federal</option><option value="RS">Rio Grande do Sul</option></select></div>
+<div><label>Tipo</label><div class="fx-seg" id="it-t"><button class="on" data-v="d">Doação</button><button data-v="h">Herança</button></div></div></div>
+<label for="it-v">Valor dos bens (R$)</label><input id="it-v" inputmode="numeric" value="500.000">
+<div class="sp"></div><div class="fx-out"><small>Imposto estimado</small><b id="it-o">R$ 0</b><p id="it-p"></p></div>
+</div>
+</div><p class="fx-note">Estimativa informativa com base na legislação vigente em 2026, sem valor de parecer. A base de cálculo pode ser o valor venal ou o arbitrado pelo fisco, e há isenções e reduções específicas. A Emenda Constitucional 132/2023 tornou o ITCMD progressivo: estados podem alterar as alíquotas para 2027.</p><div class="fx-ask">Precisa do cálculo para outro município, estado ou imposto? <a href="https://wa.me/5524992719921?text=Ol%C3%A1!%20Quero%20que%20a%20TETTU%20inclua%20no%20simulador%20o%20c%C3%A1lculo%20de%3A%20" target="_blank" rel="noopener">Peça pelo WhatsApp e incluímos para você →</a></div></div>
+
+<div class="fx-pane" id="fx-cmp"><div class="fx-grid">
+<div class="fx-card"><h3>Tenho um terreno: vendo ou permuto?</h3><p class="hint">Compare a venda à vista com a permuta por unidades do futuro empreendimento.</p>
+<label for="cp-v">Oferta de compra à vista (R$)</label><input id="cp-v" inputmode="numeric" value="1.000.000">
+<label for="cp-g">Valor geral de vendas (VGV) estimado do empreendimento (R$)</label><input id="cp-g" inputmode="numeric" value="8.000.000">
+<div class="row2"><div><label for="cp-p">Permuta: % do VGV para você</label><input id="cp-p" inputmode="decimal" value="20"></div><div><label for="cp-m">Prazo até entrega (meses)</label><input id="cp-m" inputmode="numeric" value="36"></div></div>
+<label for="cp-r">Rendimento anual do dinheiro da venda (%)</label><input id="cp-r" inputmode="decimal" value="10">
+</div>
+<div class="fx-card"><h3>Resultado</h3><p class="hint">Valores na data da entrega das unidades.</p>
+<div class="cmp"><div id="cv-a"><small>Vender agora</small><b id="cv-o">—</b><span id="cv-s"></span><div class="bar"><i id="cv-b"></i></div></div><div id="cv-c"><small>Permutar</small><b id="cp-o">—</b><span id="cp-s"></span><div class="bar"><i id="cp-b"></i></div></div></div>
+<div class="fx-out" style="margin-top:14px"><small>Leitura rápida</small><p id="cv-t" style="font-size:15px;color:#fff;margin-top:6px"></p></div>
+<p class="fx-note">Simulação simplificada: não considera tributos (ganho de capital, ITBI), risco de obra, garantias, nem o prazo de venda das unidades. A permuta exige estrutura jurídica: garantias, patrimônio de afetação e registro.</p>
+<a class="btn btn-gold" style="margin-top:12px" target="_blank" rel="noopener" href="https://wa.me/5524992719921?text=Ol%C3%A1!%20Fiz%20a%20simula%C3%A7%C3%A3o%20vender%20x%20permutar%20no%20site%20da%20TETTU%20e%20quero%20conversar%20sobre%20o%20meu%20terreno.">Avaliar meu terreno com a TETTU</a>
+</div>
+</div></div>
+
+<div class="fx-pane" id="fx-ast"><div class="fx-grid">
+<div class="fx-card"><h3>O que você vai fazer?</h3><p class="hint">Escolha o ato e o estado: o assistente monta a lista com os links oficiais.</p>
+<label>Ato</label><div class="fx-seg" id="as-a"><button class="on" data-v="compra">Comprar imóvel</button><button data-v="doacao">Doar imóvel</button><button data-v="heranca">Inventário</button><button data-v="integ">Integralizar em empresa</button><button data-v="rural">Comprar imóvel rural</button></div>
+<label>Vendedor / titular</label><div class="fx-seg" id="as-p"><button class="on" data-v="pf">Pessoa física</button><button data-v="pj">Empresa</button></div>
+<label for="as-uf">Estado</label><select id="as-uf"><option value="RJ">Rio de Janeiro</option><option value="SP">São Paulo</option><option value="MG">Minas Gerais</option><option value="DF">Distrito Federal</option><option value="RS">Rio Grande do Sul</option></select>
+<label for="pf-c">Prefeitura do imóvel (IPTU, ITBI e legislação)</label><div class="pref"><input id="pf-c" placeholder="Digite a cidade, ex.: Volta Redonda"><button id="pf-b">Buscar ↗</button></div>
+</div>
+<div class="fx-card"><h3 id="as-t">Sua lista</h3><p class="hint" id="as-h"></p><div class="ast-out" id="as-o"></div>
+<a class="btn btn-gold" id="as-w" style="margin-top:16px" target="_blank" rel="noopener">Quero que a TETTU emita para mim</a></div>
+</div></div>
+
+<div class="fx-pane" id="fx-nl"><div class="fx-card">
+<h3>Códigos de Normas e legislação dos cartórios</h3><p class="hint">Acesso direto às normas que regem notas e registros em cada estado.</p>
+<div class="nl" id="nl-o"></div>
+<p class="fx-note">Links para fontes oficiais ou, quando indicado, para compilações de entidades do setor. Normas são alteradas com frequência: confira a versão vigente antes de aplicar.</p>
+</div></div>
+</div></section>
+
+<section class="mapa" id="atuacao-mapa"><div class="w">
+<div class="mono eyebrow">Onde atuamos</div>
+<h2 style="font-size:clamp(28px,3.4vw,42px);margin:14px 0 26px">Nove municípios, um time que conhece cada cartório e cada prefeitura.</h2>
+<div class="mapa-grid"><div id="tmap"></div><div class="mapa-list" id="mlist"></div></div>
+</div></section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+/* posiciona as novas seções */
+var c=document.getElementById('central'),f=document.getElementById('ferramentas'),m=document.getElementById('atuacao-mapa'),t=document.getElementById('equipe');
+if(c&&f)c.parentNode.insertBefore(f,c.nextSibling);
+if(t&&m)t.parentNode.insertBefore(m,t);
+var nav=document.querySelector('header .links');if(nav&&!nav.querySelector('a[href="#ferramentas"]')){var a=document.createElement('a');a.href='#ferramentas';a.textContent='Ferramentas';var ref=nav.querySelector('a[href="#atualidades"]');nav.insertBefore(a,ref)}
+var brl=function(n){return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0})};
+var num=function(el){return parseFloat(String(el.value).replace(/\./g,'').replace(',','.'))||0};
+function mask(el){el.addEventListener('blur',function(){var v=num(el);if(v)el.value=v.toLocaleString('pt-BR')})}
+['ib-v','ib-f','it-v','cp-v','cp-g'].forEach(function(i){mask(document.getElementById(i))});
+/* abas */
+document.querySelectorAll('.fx-tab').forEach(function(b){b.onclick=function(){document.querySelectorAll('.fx-tab').forEach(function(x){x.classList.remove('on')});b.classList.add('on');document.querySelectorAll('.fx-pane').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.p)})}});
+function seg(id,cb){document.querySelectorAll('#'+id+' button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#'+id+' button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');cb(b.dataset.v)}})}
+/* ITBI */
+var MUN=[['Volta Redonda',2,'Alíquota usual de 2% — confirme no Código Tributário Municipal.'],['Barra Mansa',2,'LC 57/2009, art. 42: 2% sobre o valor dos bens.'],['Resende',2,'LC 001/2013: 2%; no SFH, 0,5% sobre a parte financiada.','sfh'],['Valença',2,'LC 279, art. 68: 2% sobre o valor venal.'],['Barra do Piraí',2,'Alíquota usual de 2% — confirme na lei municipal.'],['Pinheiral',2,'Alíquota usual de 2% — confirme na lei municipal.'],['Piraí',2,'Alíquota usual de 2% — confirme na LC 03/1999.'],['Três Rios',2,'Alíquota usual de 2% — confirme na lei municipal.'],['Vassouras',2,'Alíquota usual de 2% — confirme na lei municipal.'],['Rio de Janeiro (capital)',3,'Alíquota de 3% — confirme as reduções para financiamento no site da Prefeitura.'],['Niterói',2,'Alíquota usual de 2% — confirme na lei municipal.']];
+var ibm=document.getElementById('ib-m');MUN.forEach(function(x,i){var o=document.createElement('option');o.value=i;o.textContent=x[0];ibm.appendChild(o)});
+function itbi(){var v=num(document.getElementById('ib-v')),mu=MUN[ibm.value],fw=document.getElementById('ib-fin-w');fw.style.display=mu[3]?'block':'none';var fin=mu[3]?Math.min(num(document.getElementById('ib-f')),v):0;var r=(v-fin)*mu[1]/100+fin*0.005;document.getElementById('ib-o').textContent=brl(r);document.getElementById('ib-p').textContent=mu[2]}
+['ib-v','ib-f'].forEach(function(i){document.getElementById(i).addEventListener('input',itbi)});ibm.onchange=itbi;itbi();
+/* ITD/ITCMD */
+var tipo='d';seg('it-t',function(v){tipo=v;itd()});
+function itd(){var uf=document.getElementById('it-uf').value,v=num(document.getElementById('it-v')),a=0,n='';
+if(uf==='RJ'){var u=4.9604,q=v/u;a=q<=70000?4:q<=100000?4.5:q<=200000?5:q<=300000?6:q<=400000?7:8;n='ITD-RJ (Lei 7.174/2015): '+a+'% — faixas de 4% a 8% em UFIR-RJ (R$ 4,9604 em 2026), aplicadas sobre o total.'}
+else if(uf==='SP'){a=4;n='ITCMD-SP (Lei 10.705/2000): alíquota única de 4%.'}
+else if(uf==='MG'){a=5;n='ITCD-MG (Lei 14.941/2003): alíquota única de 5%. Há projeto de lei para torná-lo progressivo.'}
+else if(uf==='DF'){a=v<=1000000?4:v<=2000000?5:6;n='ITCD-DF (Lei 3.804/2006): 4%, 5% ou 6% conforme o valor. Os limites são atualizados — confirme na Receita do DF.'}
+else{var upf=28.3264,w=v/upf;if(tipo==='d'){a=w<=10000?3:4;n='ITCD-RS doação: 3% até 10.000 UPF e 4% acima (UPF 2026: R$ 28,3264). Confirme na SEFAZ-RS.'}else{a=w<=2000?0:w<=10000?3:w<=30000?4:w<=50000?5:6;n='ITCD-RS causa mortis: de 0% a 6% por faixas de UPF. Confirme na SEFAZ-RS.'}}
+document.getElementById('it-o').textContent=brl(v*a/100);document.getElementById('it-p').textContent=n}
+document.getElementById('it-v').addEventListener('input',itd);document.getElementById('it-uf').onchange=itd;itd();
+/* comparador */
+function cmp(){var V=num(document.getElementById('cp-v')),G=num(document.getElementById('cp-g')),P=parseFloat(String(document.getElementById('cp-p').value).replace(',','.'))||0,M=num(document.getElementById('cp-m')),R=parseFloat(String(document.getElementById('cp-r').value).replace(',','.'))||0;
+var venda=V*Math.pow(1+R/100,M/12),perm=G*P/100,mx=Math.max(venda,perm)||1;
+document.getElementById('cv-o').textContent=brl(venda);document.getElementById('cv-s').textContent=brl(V)+' hoje, aplicados por '+M+' meses';
+document.getElementById('cp-o').textContent=brl(perm);document.getElementById('cp-s').textContent=P+'% do VGV em unidades';
+document.getElementById('cv-b').style.width=(venda/mx*100)+'%';document.getElementById('cp-b').style.width=(perm/mx*100)+'%';
+document.getElementById('cv-a').classList.toggle('win',venda>=perm);document.getElementById('cv-c').classList.toggle('win',perm>venda);
+var d=perm-venda;document.getElementById('cv-t').textContent=d>0?'A permuta rende cerca de '+brl(d)+' a mais ('+Math.round(d/venda*100)+'%), desde que a obra seja entregue e as unidades tenham liquidez.':'A venda à vista é mais vantajosa nesse cenário em cerca de '+brl(-d)+'. Vale testar outro percentual de permuta.'}
+['cp-v','cp-g','cp-p','cp-m','cp-r'].forEach(function(i){document.getElementById(i).addEventListener('input',cmp)});cmp();
+/* assistente */
+var S={
+RJ:{pge:['PGE-RJ · Dívida ativa estadual','https://www.pge.rj.gov.br/divida-ativa-certidao-de-regularidade-fiscal'],jc:['JUCERJA · Certidões da empresa','https://www.jucerja.rj.gov.br/Servicos/Certidao'],tj:['TJRJ · Certidão judicial eletrônica','https://www3.tjrj.jus.br/CJE/certidao/judicial/solicitar'],trf:['TRF-2 · Justiça Federal','https://certidoes.trf2.jus.br/certidoes/'],trt:['TRT-1 · Ações trabalhistas','https://ceat.trt1.jus.br/certidao/feitosTrabalhistas/aba0.informacoesGerais.htm'],sef:['SEFAZ-RJ · Declaração e guia do ITD','https://portal.fazenda.rj.gov.br/itd/'],op:'Objeto e pé: pedido na serventia do processo.'},
+SP:{pge:['PGE-SP · Certidão de dívida ativa','https://www.dividaativa.pge.sp.gov.br/sc/pages/crda/emitirCrda.jsf'],jc:['JUCESP · Certidões da empresa','https://www.jucesp.sp.gov.br/'],tj:['TJSP · Certidões (e-SAJ)','https://esaj.tjsp.jus.br/sco/abrirCadastro.do'],trf:['TRF-3 · Certidão unificada da Justiça Federal','https://certidao-unificada.cjf.jus.br/'],trt:['TRT-2 · Ações trabalhistas (capital)','https://ww2.trt2.jus.br/servicos/certidoes/certidao-de-acao-trabalhista'],sef:['SEFAZ-SP · ITCMD','https://portal.fazenda.sp.gov.br/servicos/itcmd'],op:'Objeto e pé: na unidade judicial ou pelo Balcão Virtual do TJSP. No interior (Campinas), o TRT competente é o da 15ª Região.'},
+MG:{pge:['SEF-MG · Certidão de débitos tributários','https://www.fazenda.mg.gov.br/empresas/certidao_debitos/'],jc:['JUCEMG · Certidões da empresa','https://portalservicos.jucemg.mg.gov.br/'],tj:['TJMG · Certidão judicial','https://www.tjmg.jus.br/'],trf:['TRF-6 · Justiça Federal em MG','https://sistemas.trf6.jus.br/certidao/'],trt:['TRT-3 · Ações trabalhistas','https://certidao.trt3.jus.br/certidao/feitosTrabalhistas/aba0.informacoesGerais.htm'],sef:['SEF-MG · SIARE (ITCD)','https://www2.fazenda.mg.gov.br/sol/'],op:'Objeto e pé trabalhista: emitido on-line pelo TRT-3.'},
+DF:{pge:['Receita do DF · Certidão de débitos','https://www.receita.fazenda.df.gov.br/'],jc:['JUCIS-DF · Certidões da empresa','https://www.jucis.df.gov.br/'],tj:['TJDFT · Certidão de nada consta','https://cnc.tjdft.jus.br/'],trf:['TRF-1 · Justiça Federal','https://www.trf1.jus.br/trf1/carta-servicos/emissao-de-certidao-de-distribuicao'],trt:['TRT-10 · Certidão on-line','https://pje.trt10.jus.br/certidao_online/jsf/publico/certidaoOnline.jsf'],sef:['Receita do DF · ITCD','https://www.receita.fazenda.df.gov.br/'],op:'Objeto e pé: pedido por e-mail à unidade judicial ou pelo Balcão Virtual do TJDFT.'},
+RS:{pge:['SEFAZ-RS · Certidão de situação fiscal','https://www.sefaz.rs.gov.br/sat/CertidaoSitFiscalSolic.aspx'],jc:['JucisRS · Certidão on-line','https://jucisrs.rs.gov.br/emissao-de-certidao-online'],tj:['TJRS · Antecedentes e certidões','https://www.tjrs.jus.br/novo/processos-e-servicos/servicos-processuais/emissao-de-antecedentes-e-certidoes/'],trf:['TRF-4 · Certidão on-line','https://www.trf4.jus.br/trf4/controlador.php?acao=pagina_visualizar&id_pagina=3932'],trt:['TRT-4 · Ações trabalhistas','https://www.trt4.jus.br/portais/trt4/certidao-de-acoes-trabalhistas'],sef:['SEFAZ-RS · Declaração do ITCD','https://itcd.sefaz.rs.gov.br/web/'],op:'Objeto e pé: pedido na unidade judicial.'}};
+var N={ri:['Matrícula atualizada e ônus reais','https://ridigital.org.br/','Peça a de ônus reais até 30 dias antes da escritura'],cnib:['CNIB · Indisponibilidade de bens','https://www.indisponibilidade.org.br/'],rfb:['Receita Federal · Débitos federais (CPF/CNPJ)','https://servicos.receitafederal.gov.br/servico/certidoes/'],tst:['TST · Débitos trabalhistas (CNDT)','https://cndt-certidao.tst.jus.br/'],prot:['CENPROT · Protestos','https://www.pesquisaprotesto.com.br/'],crf:['Caixa · Regularidade do FGTS (CRF)','https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf'],cnpj:['Receita Federal · Situação do CNPJ','https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_solicitacao.asp'],censec:['CENSEC · Testamentos e escrituras','https://www.censec.org.br','Busca de testamento (RCTO) e de inventários e partilhas (CESDI)'],rc:['Registro Civil · Nascimento, casamento e óbito','https://www.registrocivil.org.br/'],ccir:['INCRA · CCIR','https://sncr.serpro.gov.br/ccir/emissao'],sigef:['INCRA · SIGEF (parcelas e limites)','https://sigef.incra.gov.br/'],car:['SICAR · Cadastro Ambiental Rural','https://www.car.gov.br/'],itr:['Receita Federal · Certidão do ITR','https://servicos.receitafederal.gov.br/servico/certidoes/'],sinter:['SINTER · Consulta de imóveis (CIB)','https://www.gov.br/pt-br/servicos/consultar-imoveis-no-sinter'],enot:['e-Notariado · Ato digital e certificado notarizado','https://www.e-notariado.org.br/']};
+var A={compra:['ri','cnib','rfb','pge','tj','trf','trt','tst','prot','rc'],doacao:['ri','cnib','rfb','pge','tj','prot','rc','sef'],heranca:['censec','rc','ri','cnib','rfb','pge','sef','enot'],integ:['ri','cnib','rfb','pge','jc','cnpj','tj','prot'],rural:['ri','cnib','ccir','sigef','car','itr','rfb','pge','tj','trf','trt','prot','sinter']};
+var TI={compra:'Compra e venda',doacao:'Doação de imóvel',heranca:'Inventário extrajudicial',integ:'Integralização no capital social',rural:'Compra de imóvel rural'};
+var ato='compra',pes='pf';seg('as-a',function(v){ato=v;ast()});seg('as-p',function(v){pes=v;ast()});document.getElementById('as-uf').onchange=ast;
+function ast(){var uf=document.getElementById('as-uf').value,s=S[uf],ids=A[ato].slice();if(pes==='pj'&&ato!=='heranca'){['jc','cnpj','crf'].forEach(function(k){if(ids.indexOf(k)<0)ids.push(k)})}
+var h='';ids.forEach(function(k,i){var it=s[k]||N[k];if(!it)return;h+='<div class="ast-item"><span class="n">'+(i+1)+'</span><div>'+it[0]+(it[2]?'<small>'+it[2]+'</small>':'')+'</div><a href="'+it[1]+'" target="_blank" rel="noopener">Abrir ↗</a></div>'});
+document.getElementById('as-o').innerHTML=h;document.getElementById('as-t').textContent=TI[ato]+' · '+uf;document.getElementById('as-h').textContent=ids.length+' itens.'+((ato==='compra'||ato==='rural')?' '+s.op:'');
+document.getElementById('as-w').href='https://wa.me/5524992719921?text='+encodeURIComponent('Olá! Usei o assistente do site da TETTU ('+TI[ato]+' · '+uf+') e quero que vocês emitam as certidões.')}
+ast();
+document.getElementById('pf-b').onclick=function(){var c=document.getElementById('pf-c').value.trim();if(!c){document.getElementById('pf-c').focus();return}window.open('https://www.google.com/search?q='+encodeURIComponent('prefeitura '+c+' certidão IPTU ITBI código tributário site:gov.br'),'_blank','noopener')};
+document.getElementById('pf-c').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('pf-b').click()});
+/* normas */
+var NL=[['BR','Código Nacional de Normas · Foro Extrajudicial','Provimento CNJ 149/2023','https://atos.cnj.jus.br/atos/detalhar/5243'],['RJ','Código de Normas · Parte Extrajudicial','CGJ-TJRJ · atualizações','https://portaltj.tjrj.jus.br/pt/web/cgj/atualizacoes-consolidacao-normativa-parte-extrajudicial'],['RJ','Código de Normas · Parte Judicial','CGJ-TJRJ · atualizações','https://portaltj.tjrj.jus.br/web/cgj/atualizacoes-consolidacao-normativa-parte-judicial'],['SP','Normas de Serviço · Tomo II (Extrajudicial)','CGJ-TJSP','https://www.tjsp.jus.br/Download/ConhecaTJSP/NormasExtrajudiciais/NSCGJTomoIITachado.pdf'],['SP','Lei de emolumentos','Lei estadual 11.331/2002','https://www.al.sp.gov.br/repositorio/legislacao/lei/2002/lei-11331-26.12.2002.html'],['SP','ITCMD','Lei estadual 10.705/2000','https://legislacao.fazenda.sp.gov.br/Paginas/Lei10705.aspx'],['MG','Código de Normas Notarial e Registral','Provimento Conjunto 93/2020','https://www.tjmg.jus.br/portal-tjmg/noticias/novo-codigo-de-normas-dos-servicos-notariais-e-de-registro-entra-em-vigor.htm'],['MG','Tabela de custas e emolumentos 2026','TJMG','https://www.tjmg.jus.br/portal-tjmg/informes/tabela-de-custas-e-de-emolumentos-2026.htm'],['MG','ITCD','Lei estadual 14.941/2003','https://www.almg.gov.br/legislacao-mineira/LEI/14941/2003/'],['DF','Provimento Geral da Corregedoria','CGJ-TJDFT · em atualização',''],['RS','Consolidação Normativa Notarial e Registral','CGJ-TJRS · em atualização','']];
+document.getElementById('nl-o').innerHTML=NL.map(function(x){return x[3]?'<a href="'+x[3]+'" target="_blank" rel="noopener"><span class="uf">'+x[0]+'</span><b>'+x[1]+'</b><i>'+x[2]+' ↗</i></a>':'<span class="nlk soon"><span class="uf">'+x[0]+'</span><b>'+x[1]+'</b><i>'+x[2]+'</i></span>'}).join('');
+/* mapa */
+var C=[['Volta Redonda',-22.5231,-44.1042,'Sede da TETTU · Saint Louis, 1º condomínio de lotes do Sul Fluminense',1],['Barra Mansa',-22.5442,-44.1714,'Ex-substituto e responsável pelo 3º Ofício'],['Resende',-22.4689,-44.4469,'Atuação no 3º Ofício de Resende'],['Barra do Piraí',-22.4703,-43.8256,''],['Pinheiral',-22.5131,-44.0003,''],['Piraí',-22.6289,-43.8983,''],['Três Rios',-22.1169,-43.2092,''],['Vassouras',-22.4039,-43.6625,''],['Valença',-22.2456,-43.7003,'']];
+var ml=document.getElementById('mlist');
+function initMap(){if(!window.L){ml.innerHTML=C.map(function(x){return '<button>'+x[0]+'<span>'+(x[4]?'sede · case':'')+'</span></button>'}).join('');return}
+var map=L.map('tmap',{scrollWheelZoom:false,zoomControl:true}).setView([-22.42,-43.85],9);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap',maxZoom:18}).addTo(map);
+var mk=[];C.forEach(function(x,i){var ic=L.divIcon({className:'',html:'<div class="tpin'+(x[4]?' case':'')+'"></div>',iconSize:[18,18],iconAnchor:[9,9]});var m=L.marker([x[1],x[2]],{icon:ic}).addTo(map).bindPopup('<b>'+x[0]+'</b>'+(x[3]?'<br>'+x[3]:'<br>Atendimento em cartórios e prefeitura'));mk.push(m);
+var b=document.createElement('button');b.innerHTML=x[0]+'<span>'+(x[4]?'sede · case':(x[3]?'cartório':''))+'</span>';b.onclick=function(){ml.querySelectorAll('button').forEach(function(y){y.classList.remove('on')});b.classList.add('on');map.flyTo([x[1],x[2]],12,{duration:.8});m.openPopup()};ml.appendChild(b)});
+map.fitBounds(L.featureGroup(mk).getBounds().pad(.15))}
+initMap();
+/* animações */
+if(window.gsap&&window.ScrollTrigger&&!matchMedia('(prefers-reduced-motion: reduce)').matches){gsap.registerPlugin(ScrollTrigger);
+['.bento-card','.bento-mid-card','.mini-card','.process-item','.why-card','.team-card','.fx-card','.case-card','.case-mini','.bb'].forEach(function(sel){var els=gsap.utils.toArray(sel);if(!els.length)return;gsap.from(els,{y:36,opacity:0,duration:.7,ease:'power2.out',stagger:.09,scrollTrigger:{trigger:els[0],start:'top 88%',once:true}})});
+gsap.from('.stats b',{scale:.6,opacity:0,duration:.6,stagger:.12,ease:'back.out(2)',scrollTrigger:{trigger:'.stats',start:'top 90%',once:true}})}
+})();
+</script>
