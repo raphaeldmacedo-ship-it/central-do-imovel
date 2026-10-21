@@ -1,6 +1,6 @@
 # Central do Imóvel – código-fonte
 
-**Repositório privado. Todos os direitos reservados.**
+**Repositório público para consulta. Todos os direitos reservados.**
 
 Programa de computador: **Central do Imóvel – Simuladores ITBI e ITD e Teste de Potencial**
 Autor e titular: **Raphael Duarte de Macedo**
